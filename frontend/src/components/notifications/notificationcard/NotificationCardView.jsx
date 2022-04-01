@@ -17,7 +17,7 @@ import classes from './notificationcard.module.scss'
 
 const avatarSize = 70
 
-function NotificationCardView({ type, time, handle, username, image }) {
+function NotificationCardView({ type, time, handle, username, image, post }) {
   let content = ''
   switch (type) {
     case 'like':
@@ -37,7 +37,8 @@ function NotificationCardView({ type, time, handle, username, image }) {
       break
   }
   return (
-    <Paper variant="outlined" className={classes.container}>
+     <Link to={`/post/${post}`}>
+      <Paper variant="outlined" className={classes.container}>
       <Grid
         container
         direction="row"
@@ -70,6 +71,7 @@ function NotificationCardView({ type, time, handle, username, image }) {
         </Grid>
       </Grid>
     </Paper>
+     </Link>
   )
 }
 
